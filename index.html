@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Father's Day, Papa 💛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Caveat:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #FBF3E7;
+    --cream-deep: #F4E8D8;
+    --blush: #F6C6CE;
+    --blush-deep: #EDA8B4;
+    --sage: #BFD8B8;
+    --peach: #F4B886;
+    --cocoa: #5A4234;
+    --cocoa-soft: #8B6F5C;
+    --gold: #E3A857;
+    --paper: #FFFCF6;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 100%);
+    color: var(--cocoa);
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; }
+  }
+
+  /* ---------- floating stickers ---------- */
+  .sticker-field{
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .sticker{
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.55;
+    animation: float 7s ease-in-out infinite;
+  }
+  .sticker:nth-child(1){ top: 8%; left: 6%; animation-delay: 0s; font-size: 2.4rem; }
+  .sticker:nth-child(2){ top: 18%; left: 88%; animation-delay: 1.2s; font-size: 1.8rem; }
+  .sticker:nth-child(3){ top: 70%; left: 4%; animation-delay: 2.1s; font-size: 2rem; }
+  .sticker:nth-child(4){ top: 80%; left: 90%; animation-delay: 0.6s; font-size: 2.2rem; }
+  .sticker:nth-child(5){ top: 40%; left: 92%; animation-delay: 1.8s; font-size: 1.6rem; }
+  .sticker:nth-child(6){ top: 50%; left: 2%; animation-delay: 2.6s; font-size: 1.7rem; }
+
+  @keyframes float{
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    50% { transform: translateY(-22px) rotate(4deg); }
+  }
+
+  main{ position: relative; z-index: 1; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.5rem 4rem;
+    position: relative;
+  }
+
+  .eyebrow{
+    font-family: 'Caveat', cursive;
+    font-size: 1.6rem;
+    color: var(--blush-deep);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.5px;
+  }
+
+  .hero h1{
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: clamp(2.4rem, 7vw, 5rem);
+    color: var(--cocoa);
+    line-height: 1.1;
+    text-shadow: 3px 3px 0 var(--blush);
+  }
+
+  .hero h1 span{
+    color: var(--gold);
+    text-shadow: 3px 3px 0 var(--sage);
+  }
+
+  .hero p.sub{
+    margin-top: 1.2rem;
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+    color: var(--cocoa-soft);
+    max-width: 480px;
+  }
+
+  .scroll-hint{
+    margin-top: 3rem;
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    color: var(--cocoa-soft);
+    animation: bob 2s ease-in-out infinite;
+  }
+  @keyframes bob{
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(8px); }
+  }
+
+  /* ---------- section shell ---------- */
+  section{
+    position: relative;
+    padding: 5rem 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-title{
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    text-align: center;
+    margin-bottom: 0.6rem;
+    color: var(--cocoa);
+  }
+  .section-kicker{
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    color: var(--blush-deep);
+    margin-bottom: 2.5rem;
+  }
+
+  /* ---------- open letter trigger (hero) ---------- */
+  .open-letter-btn{
+    margin-top: 2.2rem;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--paper);
+    background: linear-gradient(135deg, var(--gold), var(--peach));
+    border: none;
+    border-radius: 999px;
+    padding: 0.85rem 2.1rem;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(227, 168, 87, 0.45);
+    transition: transform 0.15s ease;
+  }
+  .open-letter-btn:hover{ transform: translateY(-3px) scale(1.03); }
+  .open-letter-btn:focus-visible{ outline: 3px solid var(--sage); outline-offset: 3px; }
+
+  /* ---------- letter modal ---------- */
+  .modal-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(90, 66, 52, 0.45);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease;
+  }
+  .modal-overlay.open{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-overlay .letter-wrap{
+    max-height: 88vh;
+    overflow-y: auto;
+    animation: pop-in 0.3s ease;
+  }
+  @keyframes pop-in{
+    0%{ transform: scale(0.92) rotate(-1deg); opacity: 0; }
+    100%{ transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  .modal-close{
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background: var(--blush-deep);
+    color: var(--paper);
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(90,66,52,0.25);
+    z-index: 5;
+  }
+  .modal-close:hover{ background: var(--gold); }
+  .modal-close:focus-visible{ outline: 3px solid var(--sage); outline-offset: 2px; }
+
+  /* ---------- letter ---------- */
+  .letter-wrap{
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .tape{
+    position: absolute;
+    width: 90px;
+    height: 34px;
+    background: rgba(191, 216, 184, 0.75);
+    border: 1px solid rgba(255,255,255,0.5);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    z-index: 2;
+  }
+  .tape.left{ top: -16px; left: 30px; transform: rotate(-8deg); }
+  .tape.right{ top: -16px; right: 30px; transform: rotate(7deg); background: rgba(244, 184, 134, 0.65); }
+
+  .letter{
+    background: var(--paper);
+    border-radius: 4px;
+    padding: clamp(1.8rem, 5vw, 3.2rem);
+    box-shadow:
+      0 1px 1px rgba(0,0,0,0.03),
+      0 8px 28px rgba(90, 66, 52, 0.12);
+    transform: rotate(-0.4deg);
+    position: relative;
+  }
+
+  .letter::before{
+    content: '';
+    position: absolute;
+    inset: 10px;
+    border: 1px dashed rgba(191, 216, 184, 0.5);
+    pointer-events: none;
+  }
+
+  .letter p{
+    font-family: 'Caveat', cursive;
+    font-size: clamp(1.25rem, 2.6vw, 1.55rem);
+    line-height: 1.65;
+    color: var(--cocoa);
+    margin-bottom: 1.1rem;
+  }
+
+  .letter .signoff{
+    margin-top: 1.6rem;
+    text-align: right;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    color: var(--blush-deep);
+  }
+
+  .doodle-heart{
+    position: absolute;
+    bottom: -18px;
+    left: -14px;
+    font-size: 2.2rem;
+    transform: rotate(-12deg);
+  }
+
+  /* ---------- gallery ---------- */
+  .stage-group{
+    margin-bottom: 3.5rem;
+  }
+  .stage-group:last-child{ margin-bottom: 0; }
+
+  .stage-title{
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 1.4rem;
+    position: relative;
+  }
+  .stage-title::before, .stage-title::after{
+    content: '✦';
+    color: var(--sage);
+    font-size: 0.9rem;
+    margin: 0 0.6rem;
+  }
+
+  .gallery-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.4rem 1.6rem;
+    margin-top: 1rem;
+  }
+
+  .polaroid{
+    background: var(--paper);
+    padding: 14px 14px 50px;
+    box-shadow: 0 6px 18px rgba(90,66,52,0.14);
+    border-radius: 2px;
+    position: relative;
+  }
+  .polaroid:nth-child(1){ transform: rotate(-3deg); }
+  .polaroid:nth-child(2){ transform: rotate(2.5deg); }
+  .polaroid:nth-child(3){ transform: rotate(-1.5deg); }
+  .polaroid:nth-child(4){ transform: rotate(3deg); }
+  .polaroid:hover{ transform: scale(1.04) rotate(0deg); transition: transform 0.25s ease; z-index: 5; }
+
+  .polaroid .frame{
+    aspect-ratio: 1/1;
+    background: linear-gradient(135deg, var(--blush) 0%, var(--sage) 100%);
+    border-radius: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .polaroid .frame img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+  }
+  .polaroid .frame.has-photo img{ display: block; }
+  .polaroid .frame.has-photo .placeholder-icon{ display: none; }
+
+  .placeholder-icon{
+    font-size: 2.2rem;
+    opacity: 0.55;
+  }
+
+  .polaroid .caption{
+    font-family: 'Caveat', cursive;
+    font-size: 1.25rem;
+    text-align: center;
+    color: var(--cocoa-soft);
+    margin-top: 10px;
+    display: block;
+  }
+
+  .polaroid .mini-tape{
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    width: 50px;
+    height: 20px;
+    background: rgba(227, 168, 87, 0.55);
+  }
+
+  .gallery-note{
+    text-align: center;
+    margin-top: 2.2rem;
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    color: var(--cocoa-soft);
+  }
+
+  /* ---------- love button ---------- */
+  .love-section{
+    text-align: center;
+    padding-bottom: 6rem;
+  }
+
+  .love-btn{
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--paper);
+    background: linear-gradient(135deg, var(--blush-deep), var(--gold));
+    border: none;
+    border-radius: 999px;
+    padding: 0.9rem 2.2rem;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(237, 168, 180, 0.45);
+    transition: transform 0.15s ease;
+  }
+  .love-btn:hover{ transform: translateY(-3px) scale(1.03); }
+  .love-btn:focus-visible{ outline: 3px solid var(--sage); outline-offset: 3px; }
+
+  .burst-emoji{
+    position: fixed;
+    font-size: 1.6rem;
+    pointer-events: none;
+    z-index: 20;
+    animation: rise 1.6s ease-out forwards;
+  }
+  @keyframes rise{
+    0%{ transform: translateY(0) scale(0.6); opacity: 1; }
+    100%{ transform: translateY(-220px) scale(1.1); opacity: 0; }
+  }
+
+  footer{
+    text-align: center;
+    padding: 2rem 1rem 3rem;
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    color: var(--cocoa-soft);
+  }
+
+  @media (max-width: 480px){
+    .tape{ width: 64px; height: 26px; }
+    .tape.left{ left: 16px; }
+    .tape.right{ right: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sticker-field" aria-hidden="true">
+  <span class="sticker">🌻</span>
+  <span class="sticker">⭐</span>
+  <span class="sticker">🎈</span>
+  <span class="sticker">💛</span>
+  <span class="sticker">🌟</span>
+  <span class="sticker">🧡</span>
+</div>
+
+<main>
+
+  <section class="hero">
+    <div class="eyebrow">a little something for...</div>
+    <h1>Happy Father's<br><span>Day, Papa</span> 🎈</h1>
+    <p class="sub">From your biggest fan, your toughest critic, and the one person you'll always be the hero to.</p>
+    <button class="open-letter-btn" id="openLetterBtn">Open Your Letter 💌</button>
+  </section>
+
+  <div class="modal-overlay" id="letterModal">
+    <div class="letter-wrap">
+      <button class="modal-close" id="closeLetterBtn" aria-label="Close letter">✕</button>
+      <div class="tape left"></div>
+      <div class="tape right"></div>
+      <div class="letter">
+        <p>Dear Papa,</p>
+        <p>I don't say this enough, so I'm putting it somewhere you can come back to: you are my hero. Not the kind from movies with capes and grand entrances, but the quieter, sturdier kind — the one who was simply always there, every single time it mattered.</p>
+        <p>You stood between me and a world that can be loud and unkind, and you made sure it never reached me before I was ready for it. But you never once boxed me in. You let me wander, question, try, fail, and try again — you protected my heart while setting my path free. That balance is rare, and I don't think I've ever thanked you for how hard that must have been to get right.</p>
+        <p>Every option I've had, every door that's been open to me — somewhere behind it, quietly, is you. Holding it open and stepping back so I could walk through on my own.</p>
+        <p>So today, of all days, I just want you to feel how loved and how seen you are. Thank you for being my safe place and my launching pad, all at once.</p>
+        <p>I love you, Papa. Always your girl.</p>
+        <div class="signoff">— Palak 💌</div>
+      </div>
+      <div class="doodle-heart">💕</div>
+    </div>
+  </div>
+
+  <section id="memories">
+    <p class="section-title">Our Little Gallery</p>
+    <p class="section-kicker">a few moments worth keeping</p>
+
+    <div class="stage-group">
+      <p class="stage-title">chotu</p>
+      <div class="gallery-grid">
+        <div class="polaroid">
+          <div class="mini-tape"></div>
+          <div class="frame">
+            <img src="child1.png" alt="Childhood memory with Papa">
+            <span class="placeholder-icon">📷</span>
+          </div>
+          <span class="caption">tiny me, big Papa 🧸</span>
+        </div>
+        <div class="polaroid">
+          <div class="mini-tape"></div>
+          <div class="frame">
+            <img src="child2.png" alt="Childhood memory with Papa">
+            <span class="placeholder-icon">📷</span>
+          </div>
+          <span class="caption">your little shadow 👣</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage-group">
+      <p class="stage-title">selfies 📷</p>
+      <div class="gallery-grid">
+        <div class="polaroid">
+          <div class="mini-tape"></div>
+          <div class="frame">
+            <img src="teen1.png" alt="Growing up memory with Papa">
+            <span class="placeholder-icon">📷</span>
+          </div>
+          <span class="caption">hehe 🌻</span>
+        </div>
+        <div class="polaroid">
+          <div class="mini-tape"></div>
+          <div class="frame">
+            <img src="teen2.png" alt="Growing up memory with Papa">
+            <span class="placeholder-icon">📷</span>
+          </div>
+          <span class="caption">cheese 📷</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage-group">
+      <p class="stage-title">meri marzi 😄</p>
+      <div class="gallery-grid">
+        <div class="polaroid">
+          <div class="mini-tape"></div>
+          <div class="frame">
+            <img src="marzi1.png" alt="Teenage memory with Papa">
+            <span class="placeholder-icon">📷</span>
+          </div>
+          <span class="caption"> </span>
+        </div>
+        <div class="polaroid">
+          <div class="mini-tape"></div>
+          <div class="frame">
+            <img src="marzi2.png" alt="Teenage memory with Papa">
+            <span class="placeholder-icon">📷</span>
+          </div>
+          <span class="caption">still your girl 💛</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage-group">
+      <p class="stage-title">abhi bhi bachi hu and badi bhi</p>
+      <div class="gallery-grid">
+        <div class="polaroid">
+          <div class="mini-tape"></div>
+          <div class="frame">
+            <img src="bachi1.png" alt="Recent memory with Papa">
+            <span class="placeholder-icon">📷</span>
+          </div>
+          <span class="caption">icecreammmmmmmm ⭐</span>
+        </div>
+        <div class="polaroid">
+          <div class="mini-tape"></div>
+          <div class="frame">
+            <img src="bachi2.png" alt="Recent memory with Papa">
+            <span class="placeholder-icon">📷</span>
+          </div>
+          <span class="caption">to many more 🧡</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="gallery-note">(There are 10000s of memories but i can't fit them yahape..heheh 😛📸)</p>
+  </section>
+
+  <section class="love-section">
+    <button class="love-btn" id="loveBtn">Mele Papa (click here) 💛</button>
+  </section>
+
+  <footer>
+    made with love 🥰
+  </footer>
+
+</main>
+
+<script>
+  // letter modal
+  const openLetterBtn = document.getElementById('openLetterBtn');
+  const closeLetterBtn = document.getElementById('closeLetterBtn');
+  const letterModal = document.getElementById('letterModal');
+
+  function openModal(){
+    letterModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    letterModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  openLetterBtn.addEventListener('click', openModal);
+  closeLetterBtn.addEventListener('click', closeModal);
+  letterModal.addEventListener('click', (e) => {
+    if (e.target === letterModal) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && letterModal.classList.contains('open')) closeModal();
+  });
+
+  // love button (unchanged functionality)
+  const btn = document.getElementById('loveBtn');
+  const emojis = ['💛','🧡','💕','🌟','🎈','✨'];
+  btn.addEventListener('click', () => {
+    for (let i = 0; i < 12; i++){
+      const el = document.createElement('span');
+      el.className = 'burst-emoji';
+      el.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+      const startX = btn.getBoundingClientRect().left + Math.random()*btn.offsetWidth;
+      const startY = btn.getBoundingClientRect().top;
+      el.style.left = startX + 'px';
+      el.style.top = startY + 'px';
+      el.style.animationDelay = (Math.random()*0.2) + 's';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 1800);
+    }
+  });
+</script>
+
+</body>
+</html>
