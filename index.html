@@ -319,18 +319,21 @@
     justify-content: center;
     overflow: hidden;
   }
+
+  /* FIX: images now show by default. If a photo fails to load (missing/
+     wrong filename), onerror swaps it for the camera placeholder icon
+     instead of the image just sitting there hidden. */
   .polaroid .frame img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: none;
+    display: block;
   }
-  .polaroid .frame.has-photo img{ display: block; }
-  .polaroid .frame.has-photo .placeholder-icon{ display: none; }
 
   .placeholder-icon{
     font-size: 2.2rem;
     opacity: 0.55;
+    display: none;
   }
 
   .polaroid .caption{
@@ -457,7 +460,7 @@
         <div class="polaroid">
           <div class="mini-tape"></div>
           <div class="frame">
-            <img src="child1.png" alt="Childhood memory with Papa">
+            <img src="child1.png" alt="Childhood memory with Papa" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <span class="placeholder-icon">📷</span>
           </div>
           <span class="caption">tiny me, big Papa 🧸</span>
@@ -465,7 +468,7 @@
         <div class="polaroid">
           <div class="mini-tape"></div>
           <div class="frame">
-            <img src="child2.png" alt="Childhood memory with Papa">
+            <img src="child2.png" alt="Childhood memory with Papa" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <span class="placeholder-icon">📷</span>
           </div>
           <span class="caption">your little shadow 👣</span>
@@ -479,7 +482,7 @@
         <div class="polaroid">
           <div class="mini-tape"></div>
           <div class="frame">
-            <img src="teen1.png" alt="Growing up memory with Papa">
+            <img src="teen1.png" alt="Growing up memory with Papa" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <span class="placeholder-icon">📷</span>
           </div>
           <span class="caption">hehe 🌻</span>
@@ -487,7 +490,7 @@
         <div class="polaroid">
           <div class="mini-tape"></div>
           <div class="frame">
-            <img src="teen2.png" alt="Growing up memory with Papa">
+            <img src="teen2.png" alt="Growing up memory with Papa" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <span class="placeholder-icon">📷</span>
           </div>
           <span class="caption">cheese 📷</span>
@@ -501,7 +504,7 @@
         <div class="polaroid">
           <div class="mini-tape"></div>
           <div class="frame">
-            <img src="marzi1.png" alt="Teenage memory with Papa">
+            <img src="marzi1.png" alt="Teenage memory with Papa" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <span class="placeholder-icon">📷</span>
           </div>
           <span class="caption"> </span>
@@ -509,7 +512,7 @@
         <div class="polaroid">
           <div class="mini-tape"></div>
           <div class="frame">
-            <img src="marzi2.png" alt="Teenage memory with Papa">
+            <img src="marzi2.png" alt="Teenage memory with Papa" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <span class="placeholder-icon">📷</span>
           </div>
           <span class="caption">still your girl 💛</span>
@@ -523,7 +526,7 @@
         <div class="polaroid">
           <div class="mini-tape"></div>
           <div class="frame">
-            <img src="bachi1.png" alt="Recent memory with Papa">
+            <img src="bachi1.png" alt="Recent memory with Papa" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <span class="placeholder-icon">📷</span>
           </div>
           <span class="caption">icecreammmmmmmm ⭐</span>
@@ -531,7 +534,7 @@
         <div class="polaroid">
           <div class="mini-tape"></div>
           <div class="frame">
-            <img src="bachi2.png" alt="Recent memory with Papa">
+            <img src="bachi2.png" alt="Recent memory with Papa" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <span class="placeholder-icon">📷</span>
           </div>
           <span class="caption">to many more 🧡</span>
